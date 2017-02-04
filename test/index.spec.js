@@ -4,7 +4,7 @@ var expect = require('chai').expect // eslint-disable-line no-unused-vars
 
 describe('File Handling', function () {
   describe('listXmlFiles()', function () {
-    it('should return 3 files', function () {
+    it('should return 5 files', function () {
       junitMerge.listXmlFiles('test/fixtures', function (err, res) {
         if (err) {
           throw err

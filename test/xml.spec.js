@@ -1,5 +1,9 @@
+var chai = require('chai')
+const fs = require('fs')
 var junitMerge = require('../lib/index.js')
-var should = require('chai').should() // eslint-disable-line no-unused-vars
+var should = chai.should() // eslint-disable-line no-unused-vars
+var expect = chai.expect // eslint-disable-line no-unused-vars
+chai.use(require('chai-xsd-schema'))
 
 describe('XML Handling', function () {
   describe('getTestsuites()', function () {
@@ -53,11 +57,11 @@ describe('XML Handling', function () {
         if (err) {
           throw err
         }
-        res.length.should.equal(1077)
+        res.length.should.equal(852)
       })
     })
 
-    it('should return No testsuites found', function () {
+    it('should return File not found', function () {
       junitMerge.getTestsuites('./test/fixtures/12.xml', function (err, res) {
         if (err) {
           err.should.equal('File not found')
@@ -65,6 +69,18 @@ describe('XML Handling', function () {
           res.should.equal(null)
         }
       })
+    })
+
+    it('Passes with valid input and valid schema', function () {
+      var schema = fs.readFileSync('test/fixtures/JUnit.xsd', {
+        encoding: 'utf8'
+      })
+
+      var xml = fs.readFileSync('merged-test-results.xml', {
+        encoding: 'utf8'
+      })
+
+      expect(xml).to.be.validXML(schema)
     })
   })
 })
