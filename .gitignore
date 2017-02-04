@@ -38,3 +38,5 @@ jspm_packages
 
 test-results.xml
 merged-test-results.xml
+
+test/moo.txt

@@ -23,11 +23,7 @@
     "standard": "^8.6.0"
   },
   "scripts": {
-    "standard": "./node_modules/.bin/standard --verbose",
-    "mocha": "./node_modules/.bin/_mocha -- test/**/*.spec.js",
-    "cov": "nyc --all --reporter=html --reporter=text mocha test/**/*.spec.js --reporter mocha-junit-reporter --reporter spec --reporter mocha-junit-reporter",
-    "coverage": "nyc report --all --reporter=text-lcov | coveralls",
-    "test": "npm run standard && npm run mocha && npm run cov"
+    "test": "standard && nyc --all --reporter=html mocha -R mocha-multi --reporter-options spec=-,xunit=test-results.xml"
   },
   "repository": {
     "type": "git",
