@@ -10,6 +10,7 @@
   "dependencies": {
     "chai-xsd-schema": "^1.0.1",
     "commander": "^2.9.0",
+    "libxml-xsd": "^0.5.2",
     "libxmljs": "^0.18.4",
     "xmldoc": "^1.0.0"
   },
