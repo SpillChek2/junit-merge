@@ -16,6 +16,6 @@ dependencies:
 
 test:
   pre:
-    - bin/junit-merge test-results.xml test/fixtures/3.xml
+    - test/fixtures/1.xml test/fixtures/3.xml
   post:
     - mkdir $CIRCLE_TEST_REPORTS/junit && cp merged-test-results.xml $CIRCLE_TEST_REPORTS/junit/merged-test-results.xml
