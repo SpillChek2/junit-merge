@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "commander": "^2.9.0",
-    "xmldoc": "^1.0.0"
+    "xmldoc": "^1.1.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
